@@ -1,32 +1,204 @@
 <!DOCTYPE html>
-<html lang="zh-TW" id="htmlLang">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Risk Check Lab - MailGuardian AI</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Auto-Workflow Email Risk Check Lab</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --border: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 右上角更新時間樣式 */
+        .top-update-time {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--accent-glow);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Mobile Responsive 手機響應式優化 */
+        @media (max-width: 768px) {
+            .top-update-time {
+                position: static;
+                display: inline-block;
+                margin-bottom: 15px;
+            }
+            header {
+                margin-top: 0;
+            }
+            h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <div class="container">
+        <div class="top-update-time">
+            🕒 最後更新：<span id="updateDate"></span>
+        </div>
+
         <header>
-            <h1 data-zh="郵件風險檢查實驗室" data-en="Email Risk Check Lab">郵件風險檢查實驗室</h1>
-            <button id="langBtn" class="lang-btn">EN / 中文</button>
+            <div class="badge">Lab Project</div>
+            <h1>Auto-Workflow Email Risk Check</h1>
+            <p class="subtitle">Exploring AI-driven email automation and risk assessment pipelines.</p>
         </header>
-        
-        <main>
-            <section class="card">
-                <h2 data-zh="系統狀態與測試" data-en="System Status & Testing">系統狀態與測試</h2>
-                <p data-zh="點擊下方按鈕測試前端與後端 Azure Logic App 串接狀態。" data-en="Click the button below to test frontend and backend Azure Logic App integration status.">點擊下方按鈕測試前端與後端 Azure Logic App 串接狀態。</p>
-                <button id="testBtn" class="action-btn" data-zh="執行測試" data-en="Run Test">執行測試</button>
-                <div id="resultText" class="result-box"></div>
-            </section>
-        </main>
+
+        <div class="card">
+            <h2>💡 About This Lab</h2>
+            <p>這是我近期利用閒暇時間動手玩的實驗專案。主要核心是透過自動化流程（Auto-flow），結合 AI 智慧來即時檢測、分析郵件內容，並進行自動化的風險評估與分類。</p>
+        </div>
+
+        <div class="card">
+            <h2>⚙️ Tech Stack & Architecture</h2>
+            <p>本專案結合了雲端無伺服器與自動化工作流程服務：</p>
+            <div class="tech-stack">
+                <span class="tag">Microsoft Azure Logic Apps</span>
+                <span class="tag">AI / LLM Analysis</span>
+                <span class="tag">Cloudflare Pages</span>
+                <span class="tag">Auto-Workflow</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🚀 Key Features</h2>
+            <ul>
+                <li><strong>自動化觸發</strong>：接收到郵件時自動透過 Logic App 啟動處理流程。</li>
+                <li><strong>AI 風險審查</strong>：即時過濾、掃描內容並識別潛在風險或異常。</li>
+                <li><strong>高維護性與擴充性</strong>：模組化設計，未來可隨時擴充更多防護規則。</li>
+            </ul>
+        </div>
 
         <footer>
-            <p data-zh="&copy; 採用 Cloudflare Pages 託管。專為實驗與開發設計。" data-en="&copy; Built with Cloudflare Pages. Designed for Lab Testing.">&copy; 採用 Cloudflare Pages 託管。專為實驗與開發設計。</p>
-            <p class="update-time"><span id="lastUpdated"></span></p>
+            <p>&copy; Built with Cloudflare Pages. Designed for Lab Testing.</p>
         </footer>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        // 自動抓取檔案最後修改日期並顯示在右上角
+        const updateTime = new Date(document.lastModified);
+        const formattedDate = updateTime.toISOString().split('T')[0]; // 格式: YYYY-MM-DD
+        document.getElementById('updateDate').textContent = formattedDate;
+    </script>
+
 </body>
 </html>
