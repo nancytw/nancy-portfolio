@@ -1,204 +1,57 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" id="htmlLang">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto-Workflow Email Risk Check Lab</title>
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.15);
-            --border: #334155;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        /* 右上角更新時間樣式 */
-        .top-update-time {
-            position: absolute;
-            top: 0;
-            right: 0;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            padding: 4px 10px;
-            border-radius: 6px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            margin-top: 20px;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: var(--accent-glow);
-            color: var(--accent);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
-        }
-
-        p.subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 10px;
-            color: var(--text-muted);
-        }
-
-        li::before {
-            content: "•";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .tag {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            color: var(--text-main);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        /* Mobile Responsive 手機響應式優化 */
-        @media (max-width: 768px) {
-            .top-update-time {
-                position: static;
-                display: inline-block;
-                margin-bottom: 15px;
-            }
-            header {
-                margin-top: 0;
-            }
-            h1 {
-                font-size: 1.75rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
-        <div class="top-update-time">
-            🕒 最後更新：<span id="updateDate"></span>
+        <div class="top-bar">
+            <div class="top-update-time">
+                🕒 <span data-zh="最後更新：" data-en="Last Updated:">最後更新：</span><span id="updateDate"></span>
+            </div>
+            <button id="langBtn" class="lang-btn">EN / 中文</button>
         </div>
 
         <header>
-            <div class="badge">Lab Project</div>
-            <h1>Auto-Workflow Email Risk Check</h1>
-            <p class="subtitle">Exploring AI-driven email automation and risk assessment pipelines.</p>
+            <div class="badge" data-zh="實驗室專案" data-en="Lab Project">實驗室專案</div>
+            <h1 data-zh="自動化郵件風險檢測" data-en="Auto-Workflow Email Risk Check">自動化郵件風險檢測</h1>
+            <p class="subtitle" data-zh="探索結合 AI 與雲端自動化流程的郵件過濾與風險評估實作。" data-en="Exploring AI-driven email automation and risk assessment pipelines.">探索結合 AI 與雲端自動化流程的郵件過濾與風險評估實作。</p>
         </header>
 
-        <div class="card">
-            <h2>💡 About This Lab</h2>
-            <p>這是我近期利用閒暇時間動手玩的實驗專案。主要核心是透過自動化流程（Auto-flow），結合 AI 智慧來即時檢測、分析郵件內容，並進行自動化的風險評估與分類。</p>
-        </div>
+        <section class="card">
+            <h2 data-zh="💡 關於這個 Lab" data-en="💡 About This Lab">💡 關於這個 Lab</h2>
+            <p data-zh="這是我近期利用閒暇時間動手玩的實驗專案。主要核心是透過自動化流程（Auto-flow），結合 AI 智慧來即時檢測、分析郵件內容，並進行自動化的風險評估與分類。" data-en="This is a lab project I've been playing with recently. The core concept is using auto-flow combined with AI intelligence to instantly detect, analyze, and classify email risks.">這是我近期利用閒暇時間動手玩的實驗專案。主要核心是透過自動化流程（Auto-flow），結合 AI 智慧來即時檢測、分析郵件內容，並進行自動化的風險評估與分類。</p>
+        </section>
 
-        <div class="card">
-            <h2>⚙️ Tech Stack & Architecture</h2>
-            <p>本專案結合了雲端無伺服器與自動化工作流程服務：</p>
+        <section class="card">
+            <h2 data-zh="⚙️ 核心技術與架構" data-en="⚙️ Tech Stack & Architecture">⚙️ 核心技術與架構</h2>
+            <p data-zh="本專案結合了雲端無伺服器與自動化工作流程服務：" data-en="This project combines Microsoft cloud services with modern serverless hosting:">本專案結合了雲端無伺服器與自動化工作流程服務：</p>
             <div class="tech-stack">
                 <span class="tag">Microsoft Azure Logic Apps</span>
                 <span class="tag">AI / LLM Analysis</span>
                 <span class="tag">Cloudflare Pages</span>
                 <span class="tag">Auto-Workflow</span>
             </div>
-        </div>
+        </section>
 
-        <div class="card">
-            <h2>🚀 Key Features</h2>
+        <section class="card">
+            <h2 data-zh="🚀 功能特色" data-en="🚀 Key Features">🚀 功能特色</h2>
             <ul>
-                <li><strong>自動化觸發</strong>：接收到郵件時自動透過 Logic App 啟動處理流程。</li>
-                <li><strong>AI 風險審查</strong>：即時過濾、掃描內容並識別潛在風險或異常。</li>
-                <li><strong>高維護性與擴充性</strong>：模組化設計，未來可隨時擴充更多防護規則。</li>
+                <li data-zh="<strong>自動化觸發</strong>：接收到郵件時自動透過 Logic App 啟動處理流程。" data-en="<strong>Auto Trigger</strong>: Automatically initiates processing via Logic Apps upon receiving emails."><strong>自動化觸發</strong>：接收到郵件時自動透過 Logic App 啟動處理流程。</li>
+                <li data-zh="<strong>AI 風險審查</strong>：即時過濾、掃描內容並識別潛在風險或異常。" data-en="<strong>AI Risk Review</strong>: Instantly filters, scans content, and identifies potential risks or anomalies."><strong>AI 風險審查</strong>：即時過濾、掃描內容並識別潛在風險或異常。</li>
+                <li data-zh="<strong>高維護性與擴充性</strong>：模組化設計，未來可隨時擴充更多防護規則。" data-en="<strong>High Maintainability</strong>: Modular design allowing easy expansion of protection rules."><strong>高維護性與擴充性</strong>：模組化設計，未來可隨時擴充更多防護規則。</li>
             </ul>
-        </div>
+        </section>
 
         <footer>
-            <p>&copy; Built with Cloudflare Pages. Designed for Lab Testing.</p>
+            <p data-zh="&copy; 採用 Cloudflare Pages 託管。專為實驗與開發設計。" data-en="&copy; Built with Cloudflare Pages. Designed for Lab Testing.">&copy; 採用 Cloudflare Pages 託管。專為實驗與開發設計。</p>
         </footer>
     </div>
 
-    <script>
-        // 自動抓取檔案最後修改日期並顯示在右上角
-        const updateTime = new Date(document.lastModified);
-        const formattedDate = updateTime.toISOString().split('T')[0]; // 格式: YYYY-MM-DD
-        document.getElementById('updateDate').textContent = formattedDate;
-    </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
