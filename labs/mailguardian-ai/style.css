@@ -145,6 +145,12 @@ footer {
     font-size: 0.85rem;
 }
 
+.footer-author {
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
 /* Mobile Responsive 手機響應式排版 */
 @media (max-width: 768px) {
     body {
