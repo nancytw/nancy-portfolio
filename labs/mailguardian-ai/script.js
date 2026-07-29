@@ -2,45 +2,29 @@ let currentLang = 'zh';
 
 document.addEventListener('DOMContentLoaded', () => {
     const langBtn = document.getElementById('langBtn');
-    const testBtn = document.getElementById('testBtn');
-    const resultText = document.getElementById('resultText');
-    const lastUpdatedSpan = document.getElementById('lastUpdated');
+    const updateDateSpan = document.getElementById('updateDate');
 
-    // 1. 自動抓取文件的最後修改時間
+    // 1. 自動抓取文件的最後修改時間並格式化為 YYYY-MM-DD
     const updateTime = new Date(document.lastModified);
-    const formattedDate = updateTime.toISOString().split('T')[0]; // 格式化為 YYYY-MM-DD
+    const formattedDate = updateTime.toISOString().split('T')[0];
+    updateDateSpan.textContent = formattedDate;
 
-    function updateFooterText() {
-        if (currentLang === 'zh') {
-            lastUpdatedSpan.textContent = `🕒 最後更新時間：${formattedDate}`;
-        } else {
-            lastUpdatedSpan.textContent = `🕒 Last Updated: ${formattedDate}`;
-        }
-    }
-
-    // 初始化顯示時間
-    updateFooterText();
-
-    // 2. 語言切換邏輯
+    // 2. 中英文切換邏輯
     langBtn.addEventListener('click', () => {
         currentLang = currentLang === 'zh' ? 'en' : 'zh';
         document.getElementById('htmlLang').lang = currentLang === 'zh' ? 'zh-TW' : 'en';
-        
+
+        // 切換所有帶有 data-zh 與 data-en 的文字
         const elements = document.querySelectorAll('[data-zh]');
         elements.forEach(el => {
-            el.textContent = el.getAttribute(`data-${currentLang}`);
+            el.innerHTML = el.getAttribute(`data-${currentLang}`);
         });
 
-        // 切換語言時同步更新頁尾時間的文字
-        updateFooterText();
-    });
-
-    // 3. 互動測試按鈕
-    testBtn.addEventListener('click', () => {
+        // 按鈕本身的文字提示切換
         if (currentLang === 'zh') {
-            resultText.textContent = "✅ 狀態正常：前端 JavaScript 執行成功，隨時可串接 Azure Logic App API！";
+            langBtn.textContent = "EN / 中文";
         } else {
-            resultText.textContent = "✅ Status Normal: Frontend JS execution successful, ready to connect Azure Logic App API!";
+            langBtn.textContent = "中文 / EN";
         }
     });
 });
