@@ -1,57 +1,133 @@
 <!DOCTYPE html>
-<html lang="en" id="htmlLang">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto-Workflow Email Risk Check Lab</title>
+    <title>Email Cyber Guardian Agent Lab | By Nancy Wei</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        <div class="top-bar">
-            <div class="top-update-time">
-                🕒 <span data-zh="最後更新：" data-en="Last Updated:">Last Updated:</span> <span id="updateDate"></span>
-            </div>
-            <button id="langBtn" class="lang-btn">中文 / EN</button>
+    <nav class="navbar">
+        <div class="nav-brand">🛡️ <span class="lang" data-zh="Email Cyber Guardian Agent Lab" data-en="Email Cyber Guardian Agent Lab">Email Cyber Guardian Agent Lab</span></div>
+        <div class="nav-links">
+            <span class="last-updated">🕒 <span class="lang" data-zh="最後更新：" data-en="Last Updated: ">最後更新：</span><span id="update-date"></span></span>
+            <button id="lang-toggle" class="btn-lang">🌐 EN / 中文</button>
         </div>
+    </nav>
 
-        <header>
-            <div class="badge" data-zh="實驗室專案" data-en="Lab Project">Lab Project</div>
-            <h1 data-zh="自動化郵件風險檢測" data-en="Auto-Workflow Email Risk Check">Auto-Workflow Email Risk Check</h1>
-            <p class="subtitle" data-zh="探索結合 AI 與雲端自動化流程的郵件過濾與風險評估實作。" data-en="Exploring AI-driven email automation and risk assessment pipelines.">Exploring AI-driven email automation and risk assessment pipelines.</p>
-        </header>
+    <header class="hero">
+        <div class="container">
+            <h1 class="lang" data-zh="自動化郵件資安防護網" data-en="Auto-Workflow Email Risk Check Lab">自動化郵件資安防護網</h1>
+            <p class="subtitle lang" data-zh="基於 Azure Logic Apps 與 Azure OpenAI 的低程式碼企業級安全自動化解決方案" data-en="Enterprise-grade low-code security automation powered by Azure Logic Apps & Azure OpenAI">基於 Azure Logic Apps 與 Azure OpenAI 的低程式碼企業級安全自動化解決方案</p>
+            <div class="author-badge">👨‍💻 Author: Nancy Wei</div>
+            
+            <div class="skills-box">
+                <span class="skill-tag">Cloud Automation</span>
+                <span class="skill-tag">AI Integration</span>
+                <span class="skill-tag">Security Analysis</span>
+                <span class="skill-tag">Low-Code Development</span>
+            </div>
+        </div>
+    </header>
 
-        <section class="card">
-            <h2 data-zh="💡 關於這個 Lab" data-en="💡 About This Lab">💡 About This Lab</h2>
-            <p data-zh="這是我近期利用閒暇時間動手玩的實驗專案。主要核心是透過自動化流程（Auto-flow），結合 AI 智慧來即時檢測、分析郵件內容，並進行自動化的風險評估與分類。" data-en="This is a lab project I've been playing with recently. The core concept is using auto-flow combined with AI intelligence to instantly detect, analyze, and classify email risks.">This is a lab project I've been playing with recently. The core concept is using auto-flow combined with AI intelligence to instantly detect, analyze, and classify email risks.</p>
-        </section>
-
-        <section class="card">
-            <h2 data-zh="⚙️ 核心技術與架構" data-en="⚙️ Tech Stack & Architecture">⚙️ Tech Stack & Architecture</h2>
-            <p data-zh="本專案結合了雲端無伺服器與自動化工作流程服務：" data-en="This project combines Microsoft cloud services with modern serverless hosting:">This project combines Microsoft cloud services with modern serverless hosting:</p>
-            <div class="tech-stack">
-                <span class="tag">Microsoft Azure Logic Apps</span>
-                <span class="tag">AI / LLM Analysis</span>
-                <span class="tag">Cloudflare Pages</span>
-                <span class="tag">Auto-Workflow</span>
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title lang" data-zh="📌 專案目標 (Lab Objective)" data-en="📌 Lab Objective">📌 專案目標 (Lab Objective)</h2>
+            <div class="card">
+                <p class="lang" data-zh="建立一個全自動化的 Email 資安分析工作流。當測試租戶信箱收到郵件時，自動攔截並交由 AI 進行深度風險評估，最後將分析報告發送給指定的安全人員。" data-en="Build a fully automated Email Security Analysis workflow. When the test tenant inbox receives an email, the system intercepts it, passes it to AI for deep risk assessment, and sends a report to security personnel.">建立一個全自動化的 Email 資安分析工作流。當測試租戶信箱收到郵件時，自動攔截並交由 AI 進行深度風險評估，最後將分析報告發送給指定的安全人員。</p>
+                <p class="warning-text lang" data-zh="⚠️ 聲明：本實驗室僅供學習與測試使用，若要在正式生產環境使用，需進行隱私與合規性審查。" data-en="⚠️ Disclaimer: This lab is for learning and testing purposes only. Privacy and compliance reviews are required before production use.">⚠️ 聲明：本實驗室僅供學習與測試使用，若要在正式生產環境使用，需進行隱私與合規性審查。</p>
             </div>
         </section>
 
-        <section class="card">
-            <h2 data-zh="🚀 功能特色" data-en="🚀 Key Features">🚀 Key Features</h2>
-            <ul>
-                <li data-zh="<strong>自動化觸發</strong>：接收到郵件時自動透過 Logic App 啟動處理流程。" data-en="<strong>Auto Trigger</strong>: Automatically initiates processing via Logic Apps upon receiving emails."><strong>Auto Trigger</strong>: Automatically initiates processing via Logic Apps upon receiving emails.</li>
-                <li data-zh="<strong>AI 風險審查</strong>：即時過濾、掃描內容並識別潛在風險或異常。" data-en="<strong>AI Risk Review</strong>: Instantly filters, scans content, and identifies potential risks or anomalies."><strong>AI Risk Review</strong>: Instantly filters, scans content, and identifies potential risks or anomalies.</li>
-                <li data-zh="<strong>高維護性與擴充性</strong>：模組化設計，未來可隨時擴充更多防護規則。" data-en="<strong>High Maintainability</strong>: Modular design allowing easy expansion of protection rules."><strong>High Maintainability</strong>: Modular design allowing easy expansion of protection rules.</li>
-            </ul>
+        <section class="section">
+            <h2 class="section-title lang" data-zh="⚖️ 架構評估與決策 (Architecture Decision)" data-en="⚖️ Architecture Decision">⚖️ 架構評估與決策 (Architecture Decision)</h2>
+            <p class="section-desc lang" data-zh="在開發前，我針對「成本、擴充性與維護難易度」評估了四種 Azure 解決方案，以找出最適合的平衡點：" data-en="Before development, I evaluated four Azure solutions based on cost, scalability, and maintainability to find the perfect balance:">在開發前，我針對「成本、擴充性與維護難易度」評估了四種 Azure 解決方案，以找出最適合的平衡點：</p>
+            
+            <div class="grid-cards">
+                <div class="arch-card">
+                    <h3>[方案 1] Power Automate + Azure OpenAI</h3>
+                    <ul>
+                        <li><strong class="lang" data-zh="💰 成本：" data-en="💰 Cost: ">💰 成本：</strong>最低 (Lowest)</li>
+                        <li><strong class="lang" data-zh="📈 擴充性：" data-en="📈 Scalability: ">📈 擴充性：</strong>低-中 (Low-Mid)</li>
+                    </ul>
+                    <p class="lang" data-zh="📝 易於建置維護，適合簡單自動化，但缺乏企業級規模整合彈性。" data-en="📝 Easy to build and maintain, suitable for simple automation, but lacks enterprise-scale integration flexibility.">📝 易於建置維護，適合簡單自動化，但缺乏企業級規模整合彈性。</p>
+                </div>
+                
+                <div class="arch-card">
+                    <h3>[方案 2] Azure Functions + Azure OpenAI</h3>
+                    <ul>
+                        <li><strong class="lang" data-zh="💰 成本：" data-en="💰 Cost: ">💰 成本：</strong>低 (Low)</li>
+                        <li><strong class="lang" data-zh="📈 擴充性：" data-en="📈 Scalability: ">📈 擴充性：</strong>高 (High)</li>
+                    </ul>
+                    <p class="lang" data-zh="📝 高度客製化且成本效益高，但需要較多程式編寫與後續程式碼維護。" data-en="📝 Highly customizable and cost-effective, but requires more coding and ongoing code maintenance.">📝 高度客製化且成本效益高，但需要較多程式編寫與後續程式碼維護。</p>
+                </div>
+
+                <div class="arch-card highlighted">
+                    <div class="badge lang" data-zh="🏆 最終選擇 (Current Solution)" data-en="🏆 Final Choice (Current Solution)">🏆 最終選擇 (Current Solution)</div>
+                    <h3>⭐ [方案 3] Azure Logic Apps + Azure OpenAI</h3>
+                    <ul>
+                        <li><strong class="lang" data-zh="💰 成本：" data-en="💰 Cost: ">💰 成本：</strong>中等 (Moderate)</li>
+                        <li><strong class="lang" data-zh="📈 擴充性：" data-en="📈 Scalability: ">📈 擴充性：</strong>高 (High)</li>
+                    </ul>
+                    <p class="lang" data-zh="📝 提供成本、低程式碼開發與企業級整合之間的絕佳平衡。特別適合雲端原生的安全自動化工作流。" data-en="📝 Provides an excellent balance between cost, low-code development, and enterprise integration. Perfect for cloud-native security workflows.">📝 提供成本、低程式碼開發與企業級整合之間的絕佳平衡。特別適合雲端原生的安全自動化工作流。</p>
+                </div>
+
+                <div class="arch-card future">
+                    <div class="badge-future lang" data-zh="🚀 未來藍圖 (Future Roadmap)" data-en="🚀 Future Roadmap">🚀 未來藍圖 (Future Roadmap)</div>
+                    <h3>[方案 4] Copilot Studio + RAG + Logic Apps</h3>
+                    <ul>
+                        <li><strong class="lang" data-zh="💰 成本：" data-en="💰 Cost: ">💰 成本：</strong>最高 (Highest)</li>
+                        <li><strong class="lang" data-zh="📈 擴充性：" data-en="📈 Scalability: ">📈 擴充性：</strong>極高 (Very High)</li>
+                    </ul>
+                    <p class="lang" data-zh="📝 支援進階 AI 代理與企業知識庫整合，是未來 Security Copilot 場景的終極目標。" data-en="📝 Supports advanced AI agents and enterprise knowledge base integration. The ultimate goal for Security Copilot scenarios.">📝 支援進階 AI 代理與企業知識庫整合，是未來 Security Copilot 場景的終極目標。</p>
+                </div>
+            </div>
         </section>
 
-        <footer>
-            <p class="footer-author">Author: Nancy Wei</p>
-            <p data-zh="&copy; 採用 Cloudflare Pages 託管。專為實驗與開發設計。" data-en="&copy; Built with Cloudflare Pages. Designed for Lab Testing.">&copy; Built with Cloudflare Pages. Designed for Lab Testing.</p>
-        </footer>
-    </div>
+        <section class="section">
+            <h2 class="section-title lang" data-zh="🔄 系統服務與自動化流程 (Services & Flow)" data-en="🔄 Services & Automation Flow">🔄 系統服務與自動化流程 (Services & Flow)</h2>
+            
+            <div class="flow-container">
+                <h3 class="lang" data-zh="⚙️ 核心服務 (Core Services)" data-en="⚙️ Core Services">⚙️ 核心服務 (Core Services)</h3>
+                <p>Azure Logic Apps | Azure OpenAI | Office 365 Outlook Connector</p>
+                
+                <h3 class="lang" data-zh="🔄 高階自動化流程 (High-Level Flow)" data-en="🔄 High-Level Flow">🔄 高階自動化流程 (High-Level Flow)</h3>
+                <div class="flow-steps">
+                    <div class="step">✉️ <span class="lang" data-zh="測試信件抵達" data-en="Email Arrives">測試信件抵達</span></div>
+                    <div class="arrow">➡️</div>
+                    <div class="step">⚡ <span class="lang" data-zh="Logic Apps 觸發" data-en="Logic Apps Triggers">Logic Apps 觸發</span></div>
+                    <div class="arrow">➡️</div>
+                    <div class="step">🧠 <span class="lang" data-zh="OpenAI 深度分析" data-en="OpenAI Analysis">OpenAI 深度分析</span></div>
+                    <div class="arrow">➡️</div>
+                    <div class="step">📊 <span class="lang" data-zh="寄發資安報告" data-en="Send Security Report">寄發資安報告</span></div>
+                </div>
+
+                <div class="wip-box">
+                    <h4 class="lang" data-zh="📖 詳細建置教學 (Step-by-Step Guide)" data-en="📖 Step-by-Step Guide">📖 詳細建置教學 (Step-by-Step Guide)</h4>
+                    <p class="lang" data-zh="狀態：文件持續撰寫中 (Work in Progress)..." data-en="Status: Work in Progress...">狀態：文件持續撰寫中 (Work in Progress)...</p>
+                    <button class="btn-locked" disabled>🔒 <span class="lang" data-zh="檢視詳細 Step-by-Step 教學 (Coming Soon)" data-en="View Step-by-Step Guide (Coming Soon)">檢視詳細 Step-by-Step 教學 (Coming Soon)</span></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title lang" data-zh="🛡️ AI 威脅偵測項目 (Threat Detection)" data-en="🛡️ AI Threat Detection Capabilities">🛡️ AI 威脅偵測項目 (Threat Detection)</h2>
+            <div class="tags-container">
+                <span class="threat-tag">🎣 Phishing (釣魚)</span>
+                <span class="threat-tag">🦠 Malware (惡意軟體特徵)</span>
+                <span class="threat-tag">🔑 Credential harvesting (憑證竊取)</span>
+                <span class="threat-tag">💼 BEC (商務郵件詐騙)</span>
+                <span class="threat-tag">🔗 Suspicious URLs (可疑連結)</span>
+                <span class="threat-tag">🎭 Impersonation (身分冒用)</span>
+                <span class="threat-tag">🧠 Social engineering (社交工程)</span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Created by Nancy Wei | For learning and demonstration purposes only.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
