@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #0078D4; /* Azure 藍色 */
+    --primary-color: #0078D4; /* Azure 微軟藍 (小title使用此顏色) */
     --primary-dark: #005A9E;
     --secondary-color: #F3F2F1;
     --text-color: #323130;
@@ -43,14 +43,18 @@ body {
 }
 .btn-lang:hover { background: #e1dfdd; }
 
-/* 英雄區塊 Hero Section */
+/* 英雄區塊 Hero Section (包含大 title) */
 .hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: white;
+    color: white; 
     padding: 60px 0;
     text-align: center;
 }
-.hero h1 { margin-top: 0; font-size: 2.6em; }
+.hero h1 { 
+    margin-top: 0; 
+    font-size: 2.6em; 
+    color: #FFFFFF; /* 👈 大 title 絕對是純白色 */
+}
 .subtitle { font-size: 1.2em; opacity: 0.9; margin-bottom: 20px; max-width: 800px; margin-left: auto; margin-right: auto;}
 .author-badge {
     display: inline-block;
@@ -61,10 +65,10 @@ body {
     font-weight: bold;
 }
 
-/* 區塊通用設定 */
+/* 區塊通用設定 (包含小 title) */
 .section { padding: 45px 0; }
 .section-title {
-    color: var(--primary-color);
+    color: var(--primary-color); /* 👈 小 title 絕對是微軟藍 */
     border-bottom: 2px solid var(--secondary-color);
     padding-bottom: 10px;
     margin-bottom: 25px;
