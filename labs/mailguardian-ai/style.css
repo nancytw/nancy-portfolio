@@ -3,9 +3,9 @@
     --card-bg: #162032;
     --text-main: #F8FAFC;
     --text-muted: #94A3B8;
-    --primary-color: #0078D4; /* 微軟藍 */
-    --neon-blue: #00E5FF; /* 螢光藍 */
-    --border-color: #334155;
+    --accent-blue: #38bdf8; /* 您指定的專屬藍色 (應用於所有小 title 與藍色字體) */
+    --neon-blue: #00E5FF; 
+    --border-color: #334155; /* 原本沉穩的深灰框線 */
 }
 
 body {
@@ -19,7 +19,7 @@ body {
 
 .container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 
-/* 螢光藍圓弧與發光 Icon */
+/* 螢光藍圓弧與發光 Icon (維持您喜歡的 Icon 特效) */
 .neon-icon {
     display: inline-flex;
     align-items: center;
@@ -63,15 +63,15 @@ body {
 .btn-lang {
     background: var(--card-bg);
     color: var(--text-main);
-    border: 1px solid var(--neon-blue);
+    border: 1px solid var(--accent-blue);
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s;
-    box-shadow: 0 0 8px rgba(0, 229, 255, 0.3);
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
 }
-.btn-lang:hover { background: rgba(0, 229, 255, 0.1); box-shadow: 0 0 12px rgba(0, 229, 255, 0.6); }
+.btn-lang:hover { background: rgba(56, 189, 248, 0.1); box-shadow: 0 0 12px rgba(56, 189, 248, 0.6); }
 
 /* 英雄區塊 Hero Section */
 .hero {
@@ -92,23 +92,23 @@ body {
 /* 區塊通用設定 */
 .section { padding: 30px 0; }
 .section-title {
-    color: var(--primary-color); /* 小 title 微軟藍 */
+    color: var(--accent-blue); /* 小 title 改為 #38bdf8 藍色 */
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 12px;
     margin-bottom: 20px;
     font-size: 1.5em;
     font-weight: 700;
-    text-shadow: 0 0 15px rgba(0, 120, 212, 0.4);
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
 }
 .section-desc { color: var(--text-muted); margin-bottom: 20px; font-size: 1.05em; }
 
-/* 放在 Widget 框內的 About & Objective 卡片 */
+/* 放在 Widget 框內的 About & Objective 卡片 (框線改回原本沉穩的邊框) */
 .base-card.neon-box { 
     background: var(--card-bg); 
     padding: 30px; 
     border-radius: 12px; 
-    border: 1px solid var(--neon-blue); 
-    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.15), inset 0 0 15px rgba(0, 229, 255, 0.05); 
+    border: 1px solid var(--border-color); /* 框線改回原本邊框顏色 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
 }
 .base-card.neon-box p { color: #E2E8F0; margin-bottom: 15px; }
 .warning-text { color: #F59E0B !important; font-size: 0.95em; font-weight: bold; margin-top: 15px; }
@@ -127,14 +127,13 @@ body {
 .neon-tag {
     background: var(--card-bg); 
     color: var(--text-main); 
-    border: 1px solid var(--neon-blue);
-    box-shadow: 0 0 8px rgba(0, 229, 255, 0.2);
+    border: 1px solid var(--border-color);
 }
-.neon-tag:hover { box-shadow: 0 0 15px rgba(0, 229, 255, 0.6); }
+.neon-tag:hover { border-color: var(--accent-blue); box-shadow: 0 0 10px rgba(56, 189, 248, 0.4); }
 .highlight-ai { 
-    background: rgba(0, 120, 212, 0.2); 
-    border: 1px solid var(--primary-color); 
-    box-shadow: 0 0 15px rgba(0, 120, 212, 0.5); 
+    background: rgba(56, 189, 248, 0.15); 
+    border: 1px solid var(--accent-blue); 
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.4); 
 }
 
 /* 網格卡片 (重點功能) */
@@ -147,7 +146,7 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
     transition: 0.3s;
 }
-.feature-card:hover { border: 1px solid var(--neon-blue); box-shadow: 0 0 15px rgba(0, 229, 255, 0.3); }
+.feature-card:hover { border: 1px solid var(--accent-blue); }
 .feature-card h3 { margin-top: 0; font-size: 1.1em; color: #FFFFFF; display: flex; align-items: center;}
 .feature-card p { color: var(--text-muted); margin-bottom: 0; font-size: 0.95em; }
 
@@ -158,12 +157,12 @@ body {
 .arch-card p { font-size: 0.9em; color: var(--text-muted); }
 
 .highlighted { 
-    border: 2px solid var(--primary-color); 
-    box-shadow: 0 0 25px rgba(0, 120, 212, 0.3); 
+    border: 2px solid var(--accent-blue); /* 最佳選項框線改為 #38bdf8 */
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.25); 
     transform: translateY(-4px); 
-    background: linear-gradient(180deg, var(--card-bg) 0%, rgba(0, 120, 212, 0.1) 100%);
+    background: linear-gradient(180deg, var(--card-bg) 0%, rgba(56, 189, 248, 0.08) 100%);
 }
-.badge { position: absolute; top: -12px; left: 20px; background: var(--primary-color); color: white; padding: 4px 14px; border-radius: 12px; font-size: 0.8em; font-weight: bold; box-shadow: 0 0 10px rgba(0, 120, 212, 0.6);}
+.badge { position: absolute; top: -12px; left: 20px; background: var(--accent-blue); color: #0B1120; padding: 4px 14px; border-radius: 12px; font-size: 0.8em; font-weight: 800; box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);}
 .future { border: 1px dashed var(--text-muted); background: rgba(30, 41, 59, 0.4); }
 .badge-future { position: absolute; top: -12px; right: 20px; background: #475569; color: white; padding: 4px 14px; border-radius: 12px; font-size: 0.8em; font-weight: bold;}
 
@@ -186,12 +185,12 @@ body {
     border-radius: 30px; 
     font-weight: bold; 
     color: #FFFFFF; 
-    border: 1px solid var(--neon-blue); 
-    box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+    border: 1px solid var(--border-color); 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
 }
-.arrow { color: var(--neon-blue); font-weight: bold; font-size: 1.4em; text-shadow: 0 0 8px var(--neon-blue); }
+.arrow { color: var(--accent-blue); font-weight: bold; font-size: 1.4em; }
 
 .wip-box { margin-top: 30px; padding: 20px; border: 1px dashed var(--border-color); border-radius: 12px; text-align: center; background: rgba(11, 17, 32, 0.5); }
 .wip-box h4 { margin-top: 0; color: #FFFFFF; }
