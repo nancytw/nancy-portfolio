@@ -93,7 +93,7 @@ body {
 .section { padding: 30px 0; }
 .section-title {
     color: var(--accent-blue); /* 小 title 改為 #38bdf8 藍色 */
-    border-bottom: 0px solid var(--border-color); /* nancy remove line */
+    /* border-bottom: 0px solid var(--border-color);  nancy remove line */
     padding-bottom: 12px;
     margin-bottom: 20px;
     font-size: 1.5em;
