@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. 自動抓取並填入絕對正確的更新日期 (格式 YYYY-MM-DD)
-    const dateElement = document.getElementById("update-date");
+    // 1. 自動抓取並填入絕對正確的更新日期 (對應 id="lastUpdated")
+    const dateElement = document.getElementById("lastUpdated");
     if (dateElement) {
         const d = new Date();
         const year = d.getFullYear();
@@ -15,10 +15,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (langToggleBtn) {
         langToggleBtn.addEventListener('click', () => {
-            // 切換語言狀態
             currentLang = currentLang === 'en' ? 'zh' : 'en';
             
-            // 選取所有帶有 'lang' class 的元素並替換文字
             const langElements = document.querySelectorAll('.lang');
             
             langElements.forEach(el => {
@@ -28,9 +26,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     el.textContent = el.getAttribute('data-zh');
                 }
             });
-            
-            // 可以根據喜好，決定按鈕文字要不要跟著變
-            // langToggleBtn.textContent = currentLang === 'en' ? '🌐 中文 / EN' : '🌐 EN / 中文';
         });
     }
 });
