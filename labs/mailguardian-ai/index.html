@@ -9,9 +9,9 @@
 <body>
 
     <nav class="navbar">
-        <div class="nav-brand">🛡️ MailGuardian AI</div>
+        <div class="nav-brand"><span class="neon-icon small">🛡️</span> MailGuardian AI</div>
         <div class="nav-links">
-            <span class="last-updated">🕒 <span class="lang" data-en="Last Updated:" data-zh="最後更新：">Last Updated:</span> <span id="update-date"></span></span>
+            <span class="last-updated"><span class="neon-icon small">🕒</span> <span class="lang" data-en="Last Updated:" data-zh="最後更新：">Last Updated:</span> <span id="lastUpdated"></span></span>
             <button id="lang-toggle" class="btn-lang">🌐 中文 / EN</button>
         </div>
     </nav>
@@ -20,19 +20,39 @@
         <div class="container">
             <h1 class="lang" data-en="MailGuardian AI : Automated Email Security Workflow" data-zh="MailGuardian AI：自動化郵件資安工作流">MailGuardian AI : Automated Email Security Workflow</h1>
             <p class="subtitle lang" data-en="Enterprise-grade low-code security automation powered by Azure Logic Apps & GPT-5" data-zh="由 Azure Logic Apps 與 GPT-5 驅動的企業級低程式碼資安自動化解決方案">Enterprise-grade low-code security automation powered by Azure Logic Apps & GPT-5</p>
-            <div class="author-badge">👨‍💻 Author: Nancy Wei</div>
         </div>
     </header>
 
     <main class="container">
         
         <section class="section">
-            <h2 class="section-title lang" data-en="🛠️ Tech Stack" data-zh="🛠️ 系統技術堆疊">🛠️ Tech Stack</h2>
+            <h2 class="section-title lang" data-en="💡 About This Lab & Objective" data-zh="💡 關於本實驗與專案目標">💡 About This Lab & Objective</h2>
+            <div class="base-card">
+                <p class="lang" 
+                   data-en="This is a lab project I've been playing with recently. The core concept is using auto-flow combined with AI intelligence to instantly detect, analyze, and classify email risks." 
+                   data-zh="這是我近期利用閒暇時間動手玩的實驗專案。主要核心是透過自動化流程（Auto-flow），結合 AI 智慧來即時檢測、分析郵件內容，並進行自動化的風險評估與分類。">
+                   This is a lab project I've been playing with recently. The core concept is using auto-flow combined with AI intelligence to instantly detect, analyze, and classify email risks.
+                </p>
+                <p class="lang" 
+                   data-en="Build a fully automated Email Security Analysis workflow. When the test tenant inbox receives an email, the system intercepts it, passes it to AI for deep risk assessment, and sends a report to security personnel." 
+                   data-zh="目標是建立一個全自動化的 Email 資安分析工作流。當測試租戶信箱收到郵件時，自動攔截並交由 AI 進行深度風險評估，最後將分析報告發送給指定的安全人員。">
+                   Build a fully automated Email Security Analysis workflow. When the test tenant inbox receives an email, the system intercepts it, passes it to AI for deep risk assessment, and sends a report to security personnel.
+                </p>
+                <p class="warning-text lang" 
+                   data-en="⚠️ Disclaimer: This lab is for learning and testing purposes only. Privacy and compliance reviews are required before production use." 
+                   data-zh="⚠️ 聲明：本實驗室僅供學習與測試使用，若要在正式生產環境使用，需進行隱私與合規性審查。">
+                   ⚠️ Disclaimer: This lab is for learning and testing purposes only. Privacy and compliance reviews are required before production use.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title lang" data-en="🛠️ Technologies Used" data-zh="🛠️ 系統技術堆疊">🛠️ Technologies Used</h2>
             <div class="tags-container tech-stack">
-                <span class="tag tech">Cloud Automation: Azure Logic Apps</span>
-                <span class="tag tech highlight-ai">AI / LLM: Azure OpenAI (GPT-5 Model) 🚀</span>
-                <span class="tag tech">Integration: Office 365 Outlook Connector</span>
-                <span class="tag tech">Frontend: HTML5 / CSS3 / Vanilla JS</span>
+                <span class="tag tech neon-tag"><span class="neon-icon small">☁️</span> Cloud Automation: Azure Logic Apps</span>
+                <span class="tag tech neon-tag highlight-ai"><span class="neon-icon small">🧠</span> AI / LLM: Azure OpenAI (GPT-5 Model)</span>
+                <span class="tag tech neon-tag"><span class="neon-icon small">🔗</span> Integration: Office 365 Outlook</span>
+                <span class="tag tech neon-tag"><span class="neon-icon small">💻</span> Frontend: HTML5 / CSS3 / Vanilla JS</span>
             </div>
         </section>
 
@@ -40,29 +60,21 @@
             <h2 class="section-title lang" data-en="✨ Key Features" data-zh="✨ 系統重點功能">✨ Key Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3>1. Zero-Trust Email Inspection</h3>
+                    <h3><span class="neon-icon">🔍</span> 1. Zero-Trust Email Inspection</h3>
                     <p class="lang" data-en="Automatically intercepts and scans all inbound external emails in the test environment." data-zh="自動攔截並掃描所有進入測試環境的外部郵件。">Automatically intercepts and scans all inbound external emails in the test environment.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>2. Next-Gen AI Analysis</h3>
+                    <h3><span class="neon-icon">🧠</span> 2. Next-Gen AI Analysis</h3>
                     <p class="lang" data-en="Leverages the latest GPT-5 model for deep contextual security logic reasoning." data-zh="導入最新的 GPT-5 模型，針對郵件上下文進行深度資安邏輯推理。">Leverages the latest GPT-5 model for deep contextual security logic reasoning.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>3. Automated Reporting</h3>
+                    <h3><span class="neon-icon">📊</span> 3. Automated Reporting</h3>
                     <p class="lang" data-en="Generates security analysis reports in milliseconds and auto-dispatches them to SecOps." data-zh="毫秒級產出資安分析報告，並自動派發給指定的 SecOps 團隊。">Generates security analysis reports in milliseconds and auto-dispatches them to SecOps.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>4. Low-Code Agility</h3>
+                    <h3><span class="neon-icon">⚡</span> 4. Low-Code Agility</h3>
                     <p class="lang" data-en="Built on a low-code architecture ensuring high enterprise scalability and low maintenance costs." data-zh="採用低程式碼架構，具備極高的企業級擴充彈性與低維護成本。">Built on a low-code architecture ensuring high enterprise scalability and low maintenance costs.</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title lang" data-en="📌 Lab Objective" data-zh="📌 專案目標">📌 Lab Objective</h2>
-            <div class="card base-card">
-                <p class="lang" data-en="Build a fully automated Email Security Analysis workflow. When the test tenant inbox receives an email, the system intercepts it, passes it to AI for deep risk assessment, and sends a report to security personnel." data-zh="建立一個全自動化的 Email 資安分析工作流。當測試租戶信箱收到郵件時，自動攔截並交由 AI 進行深度風險評估，最後將分析報告發送給指定的安全人員。">Build a fully automated Email Security Analysis workflow. When the test tenant inbox receives an email, the system intercepts it, passes it to AI for deep risk assessment, and sends a report to security personnel.</p>
-                <p class="warning-text lang" data-en="⚠️ Disclaimer: This lab is for learning and testing purposes only. Privacy and compliance reviews are required before production use." data-zh="⚠️ 聲明：本實驗室僅供學習與測試使用，若要在正式生產環境使用，需進行隱私與合規性審查。">⚠️ Disclaimer: This lab is for learning and testing purposes only. Privacy and compliance reviews are required before production use.</p>
             </div>
         </section>
 
@@ -99,19 +111,19 @@
             <h2 class="section-title lang" data-en="🔄 Services & High-Level Flow" data-zh="🔄 系統服務與自動化流程">🔄 Services & High-Level Flow</h2>
             <div class="flow-container">
                 <div class="flow-steps">
-                    <div class="step">✉️ <span class="lang" data-en="Email Arrives" data-zh="外部信件抵達">Email Arrives</span></div>
+                    <div class="step"><span class="neon-icon">✉️</span> <span class="lang" data-en="Email Arrives" data-zh="外部信件抵達">Email Arrives</span></div>
                     <div class="arrow">➡️</div>
-                    <div class="step">⚡ <span class="lang" data-en="Logic Apps Triggers" data-zh="Logic Apps 觸發">Logic Apps Triggers</span></div>
+                    <div class="step"><span class="neon-icon">⚡</span> <span class="lang" data-en="Logic Apps Triggers" data-zh="Logic Apps 觸發">Logic Apps Triggers</span></div>
                     <div class="arrow">➡️</div>
-                    <div class="step">🧠 <span class="lang" data-en="GPT-5 Deep Analysis" data-zh="GPT-5 深度分析">GPT-5 Deep Analysis</span></div>
+                    <div class="step"><span class="neon-icon">🧠</span> <span class="lang" data-en="GPT-5 Deep Analysis" data-zh="GPT-5 深度分析">GPT-5 Deep Analysis</span></div>
                     <div class="arrow">➡️</div>
-                    <div class="step">📊 <span class="lang" data-en="Send Security Report" data-zh="派發資安報告">Send Security Report</span></div>
+                    <div class="step"><span class="neon-icon">📊</span> <span class="lang" data-en="Send Report" data-zh="派發資安報告">Send Report</span></div>
                 </div>
 
                 <div class="wip-box">
                     <h4 class="lang" data-en="📖 Step-by-Step Implementation Guide" data-zh="📖 詳細建置教學預告">📖 Step-by-Step Implementation Guide</h4>
                     <p class="lang" data-en="📝 Status: Work in Progress..." data-zh="📝 狀態：文件持續整理撰寫中...">📝 Status: Work in Progress...</p>
-                    <button class="btn-locked" disabled>🔒 <span class="lang" data-en="View Step-by-Step Guide (Coming Soon)" data-zh="檢視詳細建置步驟教學 (Coming Soon)">View Step-by-Step Guide (Coming Soon)</span></button>
+                    <button class="btn-locked" disabled><span class="neon-icon small">🔒</span> <span class="lang" data-en="View Step-by-Step Guide (Coming Soon)" data-zh="檢視詳細建置步驟教學 (Coming Soon)">View Step-by-Step Guide (Coming Soon)</span></button>
                 </div>
             </div>
         </section>
@@ -120,19 +132,19 @@
             <h2 class="section-title lang" data-en="🛡️ AI Threat Detection Capabilities" data-zh="🛡️ GPT-5 威脅偵測項目">🛡️ AI Threat Detection Capabilities</h2>
             <p class="section-desc lang" data-en="The GPT-5 model is configured to detect 7 major cyber threats:" data-zh="本系統配置 GPT-5 模型偵測以下 7 大潛在資安威脅：">The GPT-5 model is configured to detect 7 major cyber threats:</p>
             <div class="tags-container">
-                <span class="tag threat">🎣 Phishing</span>
-                <span class="tag threat">🦠 Malware Indicators</span>
-                <span class="tag threat">🔑 Credential Harvesting</span>
-                <span class="tag threat">💼 Business Email Compromise</span>
-                <span class="tag threat">🔗 Suspicious URLs</span>
-                <span class="tag threat">🎭 Impersonation</span>
-                <span class="tag threat">🧠 Social Engineering</span>
+                <span class="tag threat neon-tag"><span class="neon-icon small">🎣</span> Phishing</span>
+                <span class="tag threat neon-tag"><span class="neon-icon small">🦠</span> Malware Indicators</span>
+                <span class="tag threat neon-tag"><span class="neon-icon small">🔑</span> Credential Harvesting</span>
+                <span class="tag threat neon-tag"><span class="neon-icon small">💼</span> Business Email Compromise</span>
+                <span class="tag threat neon-tag"><span class="neon-icon small">🔗</span> Suspicious URLs</span>
+                <span class="tag threat neon-tag"><span class="neon-icon small">🎭</span> Impersonation</span>
+                <span class="tag threat neon-tag"><span class="neon-icon small">🧠</span> Social Engineering</span>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>Created by Nancy Wei | For learning and demonstration purposes only.</p>
+        <p>Author: Nancy Wei | Created for learning and demonstration purposes only.</p>
     </footer>
 
     <script src="script.js"></script>
