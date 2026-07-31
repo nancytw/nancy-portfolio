@@ -192,7 +192,7 @@ strong {
 /* ==========================================
    Icon 與 Tags 樣式
    ========================================== */
-.tech-tags-container, .threat-tags-container {
+.tech-tags-container {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
@@ -208,8 +208,68 @@ strong {
     color: var(--text-main);
 }
 
-.threat-tag {
-    border-color: rgba(220, 38, 38, 0.4); /* 威脅指標稍微帶點暗紅色邊框 */
+/* ==========================================
+   ✨ 新增：威脅指標卡片 (Threat Indicator Cards)
+   ========================================== */
+.threat-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.threat-card {
+    background-color: #0F172A;
+    border: 1px solid rgba(220, 38, 38, 0.4); /* 威脅指標稍微帶點暗紅色邊框 */
+    border-radius: var(--radius-card);
+    padding: 16px 12px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.threat-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--ms-blue);
+}
+
+/* ==========================================
+   ✨ 新增：關鍵功能卡片 (Feature Cards)
+   ========================================== */
+.feature-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin-top: 16px;
+}
+
+.feature-card {
+    background-color: #0F172A;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 22px 18px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--ms-blue);
+}
+
+.feature-card h3 {
+    color: var(--ms-blue);
+    font-size: 1.02rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.6;
 }
 
 /* 流程圖樣式 */
@@ -250,12 +310,12 @@ strong {
 }
 
 /* 清單與排版 */
-.feature-list, .notes-list, .future-list {
+.notes-list, .future-list {
     padding-left: 20px;
     margin-top: 8px;
 }
 
-.feature-list li, .notes-list li, .future-list li {
+.notes-list li, .future-list li {
     margin-bottom: 8px;
 }
 
