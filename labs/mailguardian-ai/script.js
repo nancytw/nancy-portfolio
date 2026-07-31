@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
         dateSpan.textContent = `Last Updated: ${today}`;
     }
 
+    // 1b. 自動填入 footer 年份
+    const yearSpan = document.getElementById('footer-year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+
     // 2. 中英文雙語切換功能 (預設為英文版)
     const langBtn = document.getElementById('lang-switch-btn');
     let isChinese = false; // 預設英文，初次點擊切換為中文
