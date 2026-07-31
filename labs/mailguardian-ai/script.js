@@ -1,31 +1,38 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // 1. 自動抓取並填入絕對正確的更新日期 (對應 id="lastUpdated")
-    const dateElement = document.getElementById("lastUpdated");
-    if (dateElement) {
-        const d = new Date();
-        const year = d.getFullYear();
-        const month = String(d.getMonth() + 1).padStart(2, '0');
-        const day = String(d.getDate()).padStart(2, '0');
-        dateElement.textContent = `${year}-${month}-${day}`;
+// 自動抓取更新時間與中英文切換邏輯
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. 自動填入最後更新日期
+    const dateSpan = document.getElementById('last-updated-date');
+    if (dateSpan) {
+        const today = new Date().toISOString().split('T')[0];
+        // 依照你的要求：移除前面的圖示，只保留乾淨的日期文字
+        dateSpan.textContent = `Last Updated: ${today}`;
     }
 
-    // 2. 中英雙語切換邏輯 (預設為英文)
-    const langToggleBtn = document.getElementById('lang-toggle');
-    let currentLang = 'en'; // 初始狀態為英文
+    // 2. 中英文雙語切換功能
+    const langBtn = document.getElementById('lang-switch-btn');
+    let isEnglish = false;
 
-    if (langToggleBtn) {
-        langToggleBtn.addEventListener('click', () => {
-            currentLang = currentLang === 'en' ? 'zh' : 'en';
-            
-            const langElements = document.querySelectorAll('.lang');
-            
-            langElements.forEach(el => {
-                if (currentLang === 'en') {
+    if (langBtn) {
+        langBtn.addEventListener('click', () => {
+            isEnglish = !isEnglish;
+            const elementsToTranslate = document.querySelectorAll('[data-en]');
+
+            elementsToTranslate.forEach(el => {
+                if (isEnglish) {
+                    // 切換成英文
+                    const temp = el.textContent;
                     el.textContent = el.getAttribute('data-en');
+                    el.setAttribute('data-zh', temp);
                 } else {
-                    el.textContent = el.getAttribute('data-zh');
+                    // 切換回中文
+                    const zhText = el.getAttribute('data-zh');
+                    if (zhText) {
+                        el.textContent = zhText;
+                    }
                 }
             });
+
+            langBtn.textContent = isEnglish ? '切換中文 / ZH' : 'EN / 中文';
         });
     }
 });
