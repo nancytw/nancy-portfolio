@@ -66,6 +66,10 @@ h1, .main-title {
     margin-bottom: 8px;
 }
 
+.hero-section {
+    text-align: center;
+}
+
 .hero-subtitle {
     color: var(--text-muted);
     font-size: 1.1rem;
@@ -193,7 +197,7 @@ strong {
 /* ==========================================
    Icon 與 Tags 樣式
    ========================================== */
-.tech-tags-container {
+.tech-tags-container, .threat-tags-container {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
@@ -207,32 +211,29 @@ strong {
     border-radius: 20px;
     font-size: 0.9rem;
     color: var(--text-main);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+a.neon-tag {
+    cursor: pointer;
+}
+
+a.neon-tag:hover {
+    border-color: var(--ms-blue);
+    transform: translateY(-2px);
 }
 
 /* ==========================================
-   ✨ 新增：威脅指標卡片 (Threat Indicator Cards)
+   ✨ 威脅指標標籤（可點擊，連到微軟 Learn 說明）
    ========================================== */
-.threat-cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 14px;
-    margin-top: 12px;
+.threat-tag {
+    border-color: rgba(220, 38, 38, 0.4); /* 威脅指標稍微帶點暗紅色邊框 */
 }
 
-.threat-card {
-    background-color: #0F172A;
-    border: 1px solid rgba(220, 38, 38, 0.4); /* 威脅指標稍微帶點暗紅色邊框 */
-    border-radius: var(--radius-card);
-    padding: 16px 12px;
-    text-align: center;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-main);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.threat-card:hover {
-    transform: translateY(-3px);
+.threat-tag:hover {
     border-color: var(--ms-blue);
 }
 
