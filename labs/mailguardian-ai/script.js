@@ -1,4 +1,4 @@
-// 自動抓取更新時間與雙語切換邏輯 (按鈕文字不顯示「切換」)
+// 自動抓取更新時間與升級版雙語切換邏輯 (使用 innerHTML 防止跑版)
 document.addEventListener('DOMContentLoaded', () => {
     // 1. 自動填入左上角最後更新日期
     const dateSpan = document.getElementById('last-updated-date');
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. 中英文雙語切換功能 (預設為英文版)
     const langBtn = document.getElementById('lang-switch-btn');
-    let isChinese = false; // 預設英文，初次點擊切換為中文
+    let isChinese = false; // 預設英文
 
     if (langBtn) {
         langBtn.addEventListener('click', () => {
@@ -19,11 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const elementsToTranslate = document.querySelectorAll('[data-zh]');
 
             elementsToTranslate.forEach(el => {
-                const currentText = el.textContent;
-                const targetText = el.getAttribute('data-zh');
+                // 改用 innerHTML 取代 textContent，確保 <strong> 等 HTML 標籤不被洗掉
+                const currentHtml = el.innerHTML;
+                const targetHtml = el.getAttribute('data-zh');
                 
-                el.textContent = targetText;
-                el.setAttribute('data-zh', currentText);
+                // 互換內文與對應語言屬性
+                el.innerHTML = targetHtml;
+                el.setAttribute('data-zh', currentHtml);
             });
 
             // 按鈕文字隨狀態切換 (不帶「切換」二字)
