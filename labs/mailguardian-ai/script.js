@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. 中英文雙語切換功能 (預設為英文版)
     const langBtn = document.getElementById('lang-switch-btn');
-    let isChinese = false; // 預設英文
+    let isChinese = false; // 預設英文，初次點擊切換為中文
 
     if (langBtn) {
         langBtn.addEventListener('click', () => {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const elementsToTranslate = document.querySelectorAll('[data-zh]');
 
             elementsToTranslate.forEach(el => {
-                // 改用 innerHTML 取代 textContent，確保 <strong> 等 HTML 標籤不被洗掉
+                // 改用 innerHTML 取代 textContent，確保 <br> 換行與 <strong> 標籤不被洗掉
                 const currentHtml = el.innerHTML;
                 const targetHtml = el.getAttribute('data-zh');
                 
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.setAttribute('data-zh', currentHtml);
             });
 
-            // 按鈕文字隨狀態切換 (不帶「切換」二字)
+            // 按鈕文字隨狀態切換
             langBtn.textContent = isChinese ? 'EN / 中文' : '中文 / EN';
         });
     }
