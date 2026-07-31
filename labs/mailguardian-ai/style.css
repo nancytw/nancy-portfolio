@@ -30,7 +30,7 @@ body {
     margin: 0 auto;
 }
 
-/* 頂部列樣式 (移除日期前圖示，保留乾淨排版) */
+/* 頂部導覽列 */
 .top-header {
     display: flex;
     justify-content: space-between;
@@ -70,7 +70,7 @@ h1, .main-title {
     margin-bottom: 24px;
 }
 
-/* Widget 卡片排版 (每一個區塊都是版型 A 的獨立框框) */
+/* Widget 卡片排版 */
 .widget {
     background-color: var(--widget-bg);
     border: var(--border-width) solid var(--border-color);
@@ -82,7 +82,7 @@ h1, .main-title {
 }
 
 .widget:hover {
-    border-color: var(--ms-blue); /* 懸停時邊框浮現微軟藍光澤 */
+    border-color: var(--ms-blue);
 }
 
 /* 小標題樣式 (微軟藍 #38bdf8) */
@@ -90,15 +90,45 @@ h1, .main-title {
     color: var(--ms-blue) !important;
     font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-p {
+p, li {
     color: var(--text-muted);
     font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+strong {
+    color: var(--text-main);
+}
+
+/* 清單與提示文字排版 */
+.tech-list, .notes-list, .future-list {
+    padding-left: 20px;
+    margin-top: 8px;
+}
+
+.notice-text {
+    margin-top: 12px;
+    padding: 10px;
+    background-color: rgba(56, 189, 248, 0.05);
+    border-left: 3px solid var(--ms-blue);
+    border-radius: 4px;
+}
+
+.coming-soon-badge {
+    display: inline-block;
+    background-color: rgba(56, 189, 248, 0.15);
+    color: var(--ms-blue);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
 }
 
 /* 響應式手機微調 */
@@ -110,6 +140,6 @@ p {
         padding: 16px;
     }
     .main-title {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 }
