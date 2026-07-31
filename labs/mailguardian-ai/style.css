@@ -2,16 +2,16 @@
    版型 A 專屬樣式設定 (深色科技風、微軟藍)
    ========================================== */
 :root {
-    --bg-color: #0d1117;          /* 整體深色背景 */
-    --widget-bg: #161b22;         /* Widget 卡片背景 */
-    --border-color: #30363d;      /* 邊框線條顏色 */
-    --border-width: 1px;          /* 邊框粗細 */
+    --bg-color: #0d1117;          
+    --widget-bg: #161b22;         
+    --border-color: #30363d;      
+    --border-width: 1px;          
     
-    --text-main: #ffffff;         /* 大標題 / 強調字：純白 */
-    --text-muted: #ffffff;        /* 依照要求：每一個 widget 內的小文字全部改成白色 */
+    --text-main: #ffffff;         
+    --text-muted: #ffffff;        
     
-    --ms-blue: #38bdf8;           /* 微軟藍 (#38bdf8) */
-    --radius-card: 12px;          /* Widget 圓角 */
+    --ms-blue: #38bdf8;           
+    --radius-card: 12px;          
 }
 
 * {
@@ -27,7 +27,7 @@ body {
     line-height: 1.6;
     padding: 30px 20px;
     
-    /* 嚴格限制整個版型寬度為螢幕的 70% 且置中，並設定最大/最小寬度保障閱讀體驗 */
+    /* 嚴格限制整個版型寬度為螢幕的 70% 且置中 */
     width: 70%;
     max-width: 1000px;
     min-width: 300px;
@@ -60,7 +60,7 @@ body {
     border-color: var(--ms-blue);
 }
 
-/* 大標題樣式 (純白) */
+/* 大標題樣式 */
 h1, .main-title {
     color: var(--text-main) !important;
     font-size: 2.2rem;
@@ -89,7 +89,7 @@ h1, .main-title {
     border-color: var(--ms-blue);
 }
 
-/* 小標題樣式 (微軟藍 #38bdf8) */
+/* 小標題樣式 */
 .widget-title {
     color: var(--ms-blue) !important;
     font-size: 1.25rem;
@@ -100,8 +100,7 @@ h1, .main-title {
     gap: 8px;
 }
 
-/* 確保每一個 widget 區塊內的小文字全部為白色 */
-p, li, span {
+p, li, span, td {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 8px;
@@ -111,10 +110,27 @@ strong {
     color: var(--text-main);
 }
 
-/* 清單與提示排版 */
+.highlight-text {
+    color: var(--ms-blue);
+    font-weight: 700;
+    background-color: rgba(56, 189, 248, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* 清單與排版 */
 .tech-list, .notes-list, .future-list, .feature-list {
     padding-left: 20px;
     margin-top: 8px;
+}
+
+.step-list {
+    padding-left: 24px;
+    margin-top: 12px;
+}
+
+.step-list li {
+    margin-bottom: 10px;
 }
 
 .notice-text {
@@ -125,15 +141,45 @@ strong {
     border-radius: 4px;
 }
 
-.coming-soon-badge {
-    display: inline-block;
-    background-color: rgba(56, 189, 248, 0.15);
+/* 架構比較表格 */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.cost-table th, .cost-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 0;
+}
+
+.cost-table th {
     color: var(--ms-blue);
-    padding: 4px 10px;
-    border-radius: 6px;
     font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 12px;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.cost-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 高亮 Option 3 */
+.cost-table .highlight-row {
+    background-color: rgba(56, 189, 248, 0.1);
+}
+.cost-table .highlight-row td {
+    color: var(--text-main);
+    font-weight: 600;
 }
 
 /* Footer 樣式 */
@@ -146,7 +192,7 @@ strong {
     font-size: 0.9rem;
 }
 
-/* RWD 響應式：手機版自動撐開為 100% 滿版，方便閱讀 */
+/* RWD 響應式手機版 */
 @media (max-width: 768px) {
     body {
         width: 95%;
