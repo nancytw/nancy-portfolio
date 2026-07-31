@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Cyber Guardian Agent Lab</title>
+    <title>MailGuardian AI</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,121 +19,106 @@
 
     <main class="container">
         <section class="hero-section">
-            <h1 class="main-title" data-zh="Email Cyber Guardian Agent Lab 郵件資安防護與 AI 分析實作">Email Cyber Guardian Agent Lab</h1>
-            <p class="hero-subtitle" data-zh="使用 Azure Logic Apps 與 Azure OpenAI 實現自動化郵件資安 AI 分析工作流程。">Automated Email Security AI Analysis Workflow using Azure Logic Apps and Azure OpenAI.</p>
+            <h1 class="main-title" data-zh="MailGuardian AI：自動化郵件資安工作流">MailGuardian AI: Automated Email Security Workflow</h1>
+            <p class="hero-subtitle" data-zh="由 Azure Logic Apps 與 GPT-5 驅動的企業級低程式碼資安自動化解決方案。">Enterprise-grade low-code security automation powered by Azure Logic Apps & GPT-5.</p>
         </section>
 
         <div class="widget">
-            <h2 class="widget-title" data-zh="🎯 About This Lab (實驗目標與目的)">🎯 About This Lab</h2>
-            <p data-zh="本實驗旨在於測試租戶與 Azure 實驗環境中建立自動化郵件資安 AI 分析工作流程。當測試信箱收到符合條件的信件時，Azure Logic Apps 會自動觸發工作流程，將主旨與內文送交 Azure OpenAI 部署進行風險分析（如網路釣魚、憑證竊取、惡意軟體、社交工程等），並自動將 AI 產生的分析結果回傳至指定信箱。">
-                The goal of this lab is to build an automated Email Security AI analysis workflow in a test tenant and Azure lab environment. When a test email arrives, Azure Logic Apps triggers an Azure OpenAI deployment for risk analysis (phishing, credential harvesting, malware, etc.) and automatically sends the results back to the mailbox.
+            <h2 class="widget-title" data-zh="💡 About This Lab (關於本實驗與目標)">💡 About This Lab</h2>
+            <p data-zh="這是我近期利用閒暇時間動手玩的實驗專案。主要核心是透過自動化流程（Auto-flow），結合 AI 智慧來即時檢測、分析郵件內容，並進行自動化的風險評估與分類。">
+                This is a lab project I've been playing with recently. The core concept is using auto-flow combined with AI intelligence to instantly detect, analyze, and classify email risks.
             </p>
-            <p class="notice-text" data-zh="⚠️ 注意：本實驗僅供學習與測試使用，不替代 Microsoft Defender for Office 365，請勿直接用於正式環境。">
-                Note: This lab is for learning and testing purposes only. It does not replace Microsoft Defender for Office 365 and should not be used directly in production.
+            <p data-zh="當測試信箱收到信件時，系統會自動攔截，送交給 AI 進行深度風險掃描，並將分析報告派發給資安人員。">
+                Build a fully automated Email Security Analysis workflow. When the test tenant inbox receives an email, the system intercepts it, passes it to AI for deep risk assessment, and sends a report to security personnel.
+            </p>
+            <p class="notice-text" data-zh="⚠️ 聲明：本實驗僅供學習與測試使用。在投入生產環境前，請務必進行隱私與合規性審查。">
+                ⚠️ Disclaimer: This lab is for learning and testing purposes only. Privacy and compliance reviews are required before production use.
             </p>
         </div>
 
         <div class="widget">
-            <h2 class="widget-title" data-zh="📊 Architecture Options & Cost Comparison (架構選項與成本比較)">📊 Architecture Options & Cost Comparison</h2>
-            <div class="table-responsive">
-                <table class="cost-table">
-                    <thead>
-                        <tr>
-                            <th data-zh="選項">Option</th>
-                            <th data-zh="架構">Architecture</th>
-                            <th data-zh="成本">Cost</th>
-                            <th data-zh="優缺點">Pros & Cons</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Option 1</td>
-                            <td>Logic App + MDO + Sentinel</td>
-                            <td>$$$</td>
-                            <td data-zh="企業級，成本高。">Enterprise Grade, high cost.</td>
-                        </tr>
-                        <tr>
-                            <td>Option 2</td>
-                            <td>Logic App + Free Threat Intel API</td>
-                            <td>$</td>
-                            <td data-zh="低成本，準確度有限。">Low cost, limited accuracy.</td>
-                        </tr>
-                        <tr class="highlight-row">
-                            <td>Option 3</td>
-                            <td>Logic App + Azure OpenAI + Outlook</td>
-                            <td>$$</td>
-                            <td data-zh="成本與能力平衡，低代碼實作，高彈性。">Balanced cost & capability, low-code, high flexibility.</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <h2 class="widget-title" data-zh="⚖️ Architecture Options (架構評估與決策)">⚖️ Architecture Options</h2>
+            <p data-zh="在開發前，我針對「成本、擴充性與維護難易度」評估了四種 Azure 解決方案，以找出最適合的平衡點：">Before development, I evaluated four Azure solutions based on "cost, scalability, and maintenance complexity" to find the optimal balance:</p>
+            
+            <div class="arch-cards-container">
+                <div class="arch-card">
+                    <h3 data-zh="[Option 1]<br>Power Automate<br>+ Azure OpenAI">[Option 1]<br>Power Automate<br>+ Azure OpenAI</h3>
+                    <p data-zh="成本最低，易於建置，但缺乏企業級規模整合彈性。">Lowest cost and easy to build, but lacks flexibility for enterprise-scale integration.</p>
+                </div>
+                
+                <div class="arch-card">
+                    <h3 data-zh="[Option 2]<br>Azure Functions<br>+ Azure OpenAI">[Option 2]<br>Azure Functions<br>+ Azure OpenAI</h3>
+                    <p data-zh="擴充性高，但需要較多程式碼編寫與後續程式碼維護。">Highly scalable, but requires more coding and ongoing code maintenance.</p>
+                </div>
+                
+                <div class="arch-card highlight-card">
+                    <div class="card-badge primary-badge" data-zh="🏆 最終選擇">🏆 Current Choice</div>
+                    <h3 data-zh="⭐ [Option 3]<br>Azure Logic Apps<br>+ Azure OpenAI">⭐ [Option 3]<br>Azure Logic Apps<br>+ Azure OpenAI</h3>
+                    <p data-zh="提供成本、低程式碼開發與企業級整合之間的絕佳平衡。特別適合雲端原生的安全自動化工作流。">Provides an excellent balance between cost, low-code development, and enterprise integration. Perfect for cloud-native security automation workflows.</p>
+                </div>
+                
+                <div class="arch-card future-card">
+                    <div class="card-badge secondary-badge" data-zh="🚀 未來藍圖">🚀 Future Roadmap</div>
+                    <h3 data-zh="[Option 4]<br>Copilot Studio<br>+ RAG + Logic Apps">[Option 4]<br>Copilot Studio<br>+ RAG + Logic Apps</h3>
+                    <p data-zh="支援進階 AI 代理與企業知識庫整合，是未來 Security Copilot 場景的終極目標。">Supports advanced AI agents and enterprise knowledge integration. The ultimate goal for Security Copilot scenarios.</p>
+                </div>
             </div>
         </div>
 
         <div class="widget">
-            <h2 class="widget-title" data-zh="💡 Architecture Choice & Roadmap (架構選擇與未來藍圖)">💡 Architecture Choice & Roadmap</h2>
-            <p data-zh="我目前的實驗是基於選項 3（Azure Logic Apps + Azure OpenAI + Outlook）。我選擇它是因為它在成本、低代碼實作以及真實企業資安自動化之間提供了良好的平衡。我未來的藍圖包括威脅情資豐富化、Sentinel 整合，並最終將解決方案演進為具備 RAG 能力的 Copilot Studio AI Agent。">
-                My current lab is based on Option 3 (Azure Logic Apps + Azure OpenAI + Outlook). I chose it because it provides a good balance between cost, low-code implementation, and real-world enterprise security automation. My future roadmap includes threat intelligence enrichment, Sentinel integration, and eventually evolving the solution into a Copilot Studio AI Agent with RAG capabilities.
-            </p>
+            <h2 class="widget-title" data-zh="⚙️ Tech Stack & Architecture (核心技術與架構)">⚙️ Tech Stack & Architecture</h2>
+            <p data-zh="本專案結合了雲端無伺服器與自動化工作流程服務：">This project combines Microsoft cloud services with modern serverless hosting:</p>
+            <div class="tech-tags-container">
+                <span class="neon-tag" data-zh="☁️ Microsoft Azure Logic Apps">☁️ Microsoft Azure Logic Apps</span>
+                <span class="neon-tag" data-zh="🧠 AI / LLM Analysis">🧠 AI / LLM Analysis</span>
+                <span class="neon-tag" data-zh="🔗 Cloudflare Pages">🔗 Cloudflare Pages</span>
+                <span class="neon-tag" data-zh="⚙️ Auto-Workflow">⚙️ Auto-Workflow</span>
+            </div>
         </div>
 
         <div class="widget">
-            <h2 class="widget-title" data-zh="⚙️ Tech Stack & Architecture (使用的技術與架構)">⚙️ Tech Stack & Architecture</h2>
-            <ul class="tech-list">
-                <li><strong data-zh="Azure Logic Apps：">Azure Logic Apps:</strong> <span data-zh="用於建構整體自動化工作流程。">Used to build the overall automation workflow.</span></li>
-                <li><strong data-zh="Azure OpenAI Connector：">Azure OpenAI Connector:</strong> <span data-zh="Logic App 用來呼叫 Azure OpenAI 模型。">Used by Logic App to call the Azure OpenAI model.</span></li>
-                <li><strong data-zh="Azure OpenAI Resource & Deployment：">Azure OpenAI Resource & Deployment:</strong> <span data-zh="用於託管 GPT 部署並提供 API 金鑰。">Used to host the GPT deployment and provide the API key.</span></li>
-                <li><strong data-zh="Office 365 Outlook Connector：">Office 365 Outlook Connector:</strong> <span data-zh="用來監控測試信箱並發送 AI 分析結果郵件。">Used to monitor mailbox and send analysis results.</span></li>
-                <li><strong data-zh="Test Tenant Mailboxes：">Test Tenant Mailboxes:</strong> <span data-zh="用於發送測試郵件及接收分析結果。">Used for sending/receiving test and analysis emails.</span></li>
-            </ul>
-        </div>
-
-        <div class="widget">
-            <h2 class="widget-title" data-zh="🧠 AI Analysis Engine (Powered by GPT-5)">🧠 AI Analysis Engine (Powered by GPT-5)</h2>
-            <p><strong data-zh="使用模型：">Model Selected:</strong> <span class="highlight-text" data-zh="Azure OpenAI GPT-5">Azure OpenAI GPT-5</span></p>
-            <p data-zh="系統會自動將郵件送交 GPT-5 模型進行初步風險分析，掃描並識別以下潛在威脅指標：">The system automatically sends emails to the GPT-5 model for preliminary risk analysis, scanning for the following threat indicators:</p>
-            <ul class="feature-list">
-                <li data-zh="網路釣魚 (Phishing)">Phishing</li>
-                <li data-zh="憑證竊取 (Credential harvesting)">Credential harvesting</li>
-                <li data-zh="可疑網址 (Suspicious URLs)">Suspicious URLs</li>
-                <li data-zh="惡意軟體特徵 (Malware indicators)">Malware indicators</li>
-                <li data-zh="商業電子郵件詐騙 (Business Email Compromise / BEC)">Business Email Compromise (BEC)</li>
-                <li data-zh="身分冒充與社交工程 (Impersonation & Social engineering)">Impersonation & Social engineering</li>
-            </ul>
+            <h2 class="widget-title" data-zh="🛡️ GPT-5 威脅偵測項目 (Threat Indicators)">🛡️ GPT-5 Threat Indicators</h2>
+            <p data-zh="本系統配置 GPT-5 模型偵測以下潛在資安威脅：">The system utilizes the GPT-5 model to detect the following potential security threats:</p>
+            <div class="threat-tags-container">
+                <span class="neon-tag threat-tag" data-zh="🎣 Phishing">🎣 Phishing</span>
+                <span class="neon-tag threat-tag" data-zh="🔑 Credential Harvesting">🔑 Credential Harvesting</span>
+                <span class="neon-tag threat-tag" data-zh="🔗 Suspicious URLs">🔗 Suspicious URLs</span>
+                <span class="neon-tag threat-tag" data-zh="🦠 Malware Indicators">🦠 Malware Indicators</span>
+                <span class="neon-tag threat-tag" data-zh="💼 Business Email Compromise">💼 Business Email Compromise</span>
+                <span class="neon-tag threat-tag" data-zh="🎭 Impersonation">🎭 Impersonation</span>
+                <span class="neon-tag threat-tag" data-zh="🧠 Social Engineering">🧠 Social Engineering</span>
+            </div>
         </div>
 
         <div class="widget">
             <h2 class="widget-title" data-zh="🚀 Key Features (核心功能)">🚀 Key Features</h2>
             <ul class="feature-list">
-                <li><strong data-zh="自動觸發：">Auto Trigger:</strong> <span data-zh="收到信件時，透過 Logic Apps 自動啟動處理程序。">Automatically initiates processing via Logic Apps upon receiving emails.</span></li>
-                <li><strong data-zh="AI 風險審查：">AI Risk Review:</strong> <span data-zh="即時過濾、掃描內容並識別潛在風險或異常。">Instantly filters, scans content, and identifies potential risks or anomalies.</span></li>
-                <li><strong data-zh="高可維護性：">High Maintainability:</strong> <span data-zh="模組化設計，可輕鬆擴充防護規則。">Modular design allowing easy expansion of protection rules.</span></li>
+                <li><strong data-zh="自動觸發 (Auto Trigger)：">Auto Trigger:</strong> <span data-zh="收到信件時，透過 Logic Apps 自動啟動處理程序。">Automatically initiates processing via Logic Apps upon receiving emails.</span></li>
+                <li><strong data-zh="AI 風險審查 (AI Risk Review)：">AI Risk Review:</strong> <span data-zh="即時過濾、掃描內容並識別潛在風險或異常。">Instantly filters, scans content, and identifies potential risks or anomalies.</span></li>
+                <li><strong data-zh="高可維護性 (High Maintainability)：">High Maintainability:</strong> <span data-zh="模組化設計，可輕鬆擴充防護規則。">Modular design allowing easy expansion of protection rules.</span></li>
             </ul>
         </div>
 
         <div class="widget">
-            <h2 class="widget-title" data-zh="🔄 Automation Flow (自動化流程)">🔄 Automation Flow</h2>
-            <p class="flow-steps" data-zh="測試郵件抵達信箱 ➔ Logic App 自動觸發 ➔ 傳送郵件內容至 Azure OpenAI (GPT-5) ➔ AI 分析資安風險 ➔ 格式化分析結果 ➔ 透過 Outlook Connector 發送分析郵件給使用者。">
-                Test email arrives → Logic App triggered → Sends content to Azure OpenAI (GPT-5) → AI analyzes risk → Formats result → Outlook Connector sends analysis email to recipient.
-            </p>
+            <h2 class="widget-title" data-zh="🔄 系統服務與自動化流程 (System Flow)">🔄 System Flow</h2>
+            <div class="flow-container">
+                <span class="step" data-zh="✉️ 外部信件抵達">✉️ External Email Arrives</span>
+                <span class="arrow">➔</span>
+                <span class="step" data-zh="⚡ Logic Apps 觸發">⚡ Logic Apps Trigger</span>
+                <span class="arrow">➔</span>
+                <span class="step" data-zh="🧠 GPT-5 深度分析">🧠 GPT-5 Deep Analysis</span>
+                <span class="arrow">➔</span>
+                <span class="step" data-zh="📊 派發資安報告">📊 Send Security Report</span>
+            </div>
         </div>
 
         <div class="widget">
-            <h2 class="widget-title" data-zh="📌 Important Notes (重要注意事項)">📌 Important Notes</h2>
+            <h2 class="widget-title" data-zh="📌 Important Notes (注意事項)">📌 Important Notes</h2>
             <ul class="notes-list">
                 <li data-zh="API 金鑰安全儲存在 Azure OpenAI Connector 連線設定中。">The API key is securely stored in the Azure OpenAI Connector connection.</li>
                 <li data-zh="可使用 HTTP 動作直接呼叫 REST API（亦可整合 Azure Key Vault 進行金鑰管理）。">HTTP action can also be used to call Azure OpenAI REST API directly (Azure Key Vault can be integrated for secret management).</li>
                 <li data-zh="建議使用測試租戶信箱，不建議使用個人 Outlook.com 信箱以免觸發流量限制。">Recommended to use test tenant mailboxes rather than personal Outlook.com to avoid risk controls and sending limits.</li>
             </ul>
-        </div>
-
-        <div class="widget">
-            <h2 class="widget-title" data-zh="🛠️ Full Implementation Steps (完整實作步驟)">🛠️ Full Implementation Steps</h2>
-            <ol class="step-list">
-                <li><strong data-zh="建立 Azure Logic App 與 Outlook 連線">Create the Azure Logic App & Outlook connection.</strong></li>
-                <li><strong data-zh="設定 Azure OpenAI (GPT-5) 資源與部署">Configure Azure OpenAI (GPT-5).</strong></li>
-                <li><strong data-zh="建置提示詞工程邏輯 (Prompt Engineering)">Build the Prompt Engineering logic.</strong></li>
-                <li><strong data-zh="使用惡意/正常信件進行測試與驗證">Test and Validate with malicious/benign emails.</strong></li>
-            </ol>
         </div>
 
         <div class="widget">
