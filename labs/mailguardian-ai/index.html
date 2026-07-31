@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Portfolio & Architecture</title>
+    <title>Email Cyber Guardian Agent Lab</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,22 +19,56 @@
 
     <main class="container">
         <section class="hero-section">
-            <h1 class="main-title" data-en="Cloud Automation & AI Security Lab">雲端自動化與 AI 資安實作實驗室</h1>
-            <p class="hero-subtitle" data-en="A comprehensive portfolio demonstrating cloud architecture, AI integration, and secure deployment.">展示雲端架構、AI 整合與安全部署的綜合作品集專案。</p>
+            <h1 class="main-title" data-en="Email Cyber Guardian Agent Lab">Email Cyber Guardian Agent Lab 郵件資安防護與 AI 分析實作</h1>
+            <p class="hero-subtitle" data-en="Automated Email Security AI Analysis Workflow using Azure Logic Apps and Azure OpenAI.">使用 Azure Logic Apps 與 Azure OpenAI 實現自動化郵件資安 AI 分析工作流程。</p>
         </section>
 
         <div class="widget">
-            <h2 class="widget-title" data-en="💡 About This Lab & Objective">💡 關於此 Lab 與目標</h2>
-            <p data-en="This lab aims to build an automated and secure architecture combining modern cloud services and AI protection, showcasing enterprise-level system design capabilities.">
-                本實驗旨在建立結合現代雲端服務與 AI 防護的自動化安全架構，展現企業級的系統設計與實作能力。
+            <h2 class="widget-title" data-en="🎯 Lab Objective">🎯 1. Lab Objective (實驗目標與目的)</h2>
+            <p data-en="The goal of this lab is to build an automated Email Security AI analysis workflow in a test tenant and Azure lab environment. When a test email arrives, Azure Logic Apps triggers an Azure OpenAI deployment for risk analysis (phishing, credential harvesting, malware, etc.) and automatically sends the results back to the mailbox.">
+                本實驗旨在於測試租戶與 Azure 實驗環境中建立自動化郵件資安 AI 分析工作流程。當測試信箱收到符合條件的信件時，Azure Logic Apps 會自動觸發工作流程，將主旨與內文送交 Azure OpenAI 部署進行風險分析（如網路釣魚、憑證竊取、惡意軟體、社交工程等），並自動將 AI 產生的分析結果回傳至指定信箱。
+            </p>
+            <p class="notice-text" data-en="Note: This lab is for learning and testing purposes only. It does not replace Microsoft Defender for Office 365.">
+                ⚠️ 注意：本實驗僅供學習與測試使用，不替代 Microsoft Defender for Office 365，請勿直接用於正式環境。
             </p>
         </div>
 
         <div class="widget">
-            <h2 class="widget-title" data-en="⚙️ Tech Stack & Architecture">⚙️ 技術堆疊與架構</h2>
-            <p data-en="Core technologies used: Cloudflare Pages/Workers, Azure Cloud Services, Python, and AI Security Integration.">
-                使用的核心技術：Cloudflare Pages/Workers、Azure 雲端服務、Python 以及 AI 資安整合。
+            <h2 class="widget-title" data-en="⚙️ Services and Components Used">⚙️ 2. Services and Components Used (使用的技術與服務)</h2>
+            <ul class="tech-list">
+                <li><strong data-en="Azure Logic Apps:">Azure Logic Apps：</strong> <span data-en="Used to build the overall automation workflow.">用於建構整體自動化工作流程。</span></li>
+                <li><strong data-en="Azure OpenAI Connector:">Azure OpenAI Connector：</strong> <span data-en="Used by Logic App to call the Azure OpenAI model.">Logic App 用來呼叫 Azure OpenAI 模型。</span></li>
+                <li><strong data-en="Azure OpenAI Resource & Deployment:">Azure OpenAI Resource & Deployment：</strong> <span data-en="Used to host the GPT deployment and provide the API key.">用於託管 GPT 部署並提供 API 金鑰。</span></li>
+                <li><strong data-en="Office 365 Outlook Connector:">Office 365 Outlook Connector：</strong> <span data-en="Used to monitor mailbox and send analysis results.">用來監控測試信箱並發送 AI 分析結果郵件。</span></li>
+                <li><strong data-en="Test Tenant Mailboxes:">Test Tenant Mailboxes：</strong> <span data-en="Used for sending/receiving test and analysis emails.">用於發送測試郵件及接收分析結果。</span></li>
+            </ul>
+        </div>
+
+        <div class="widget">
+            <h2 class="widget-title" data-en="🔄 Automation Flow">🔄 3. Automation Flow (自動化流程)</h2>
+            <p class="flow-steps" data-en="Test email arrives → Logic App triggered → Sends content to Azure OpenAI → AI analyzes risk → Formats result → Outlook Connector sends analysis email to recipient.">
+                測試郵件抵達信箱 ➔ Logic App 自動觸發 ➔ 傳送郵件內容至 Azure OpenAI ➔ AI 分析資安風險 ➔ 格式化分析結果 ➔ 透過 Outlook Connector 發送分析郵件給使用者。
             </p>
+        </div>
+
+        <div class="widget">
+            <h2 class="widget-title" data-en="📌 Important Notes">📌 4. Important Notes (重要注意事項)</h2>
+            <ul class="notes-list">
+                <li data-en="The API key is securely stored in the Azure OpenAI Connector connection.">API 金鑰安全儲存在 Azure OpenAI Connector 連線設定中。</li>
+                <li data-en="HTTP action can also be used to call Azure OpenAI REST API directly (Azure Key Vault can be integrated for secret management).">可使用 HTTP 動作直接呼叫 REST API（亦可整合 Azure Key Vault 進行金鑰管理）。</li>
+                <li data-en="Recommended to use test tenant mailboxes rather than personal Outlook.com to avoid risk controls and sending limits.">建議使用測試租戶信箱，不建議使用個人 Outlook.com 信箱以免觸發流量限制。</li>
+            </ul>
+        </div>
+
+        <div class="widget">
+            <h2 class="widget-title" data-en="🚀 Future Improvements & Full Implementation Steps">🚀 5. Full Implementation Steps & Future Improvements (完整實作步驟與未來展望)</h2>
+            <p class="coming-soon-badge" data-en="[ COMING SOON ] Full step-by-step tutorial is on the way!">[ COMING SOON ] 完整實作步驟教學建置中！</p>
+            <p data-en="Upcoming features and planned improvements for this lab:">未來擴充功能與優化項目：</p>
+            <ul class="future-list">
+                <li data-en="Teams notification integration.">Teams 通知整合。</li>
+                <li data-en="Excel or dashboard logging for AI analysis results.">Excel 或儀表板日誌紀錄。</li>
+                <li data-en="URL, domain, and IP reputation enrichment using threat intelligence APIs.">提取郵件內的 URL、網域與 IP，並呼叫威脅情資或聲譽 API 進行豐富化分析。</li>
+            </ul>
         </div>
     </main>
 
