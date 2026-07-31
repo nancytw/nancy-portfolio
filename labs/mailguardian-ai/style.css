@@ -1,19 +1,17 @@
 /* ==========================================
-   全域設定與版型 A 核心色系
+   版型 A 專屬樣式設定 (深色科技風、微軟藍)
    ========================================== */
 :root {
-    --bg-color: #0d1117;          /* 現代深色科技風背景 */
+    --bg-color: #0d1117;          /* 整體深色背景 */
     --widget-bg: #161b22;         /* Widget 卡片背景 */
     --border-color: #30363d;      /* 邊框線條顏色 */
     --border-width: 1px;          /* 邊框粗細 */
     
-    --text-main: #ffffff;         /* 大標題 / 主要文字：純白 */
-    --text-muted: #8b949e;        /* 次要說明文字：灰階 */
+    --text-main: #ffffff;         /* 大標題 / 強調字：純白 */
+    --text-muted: #8b949e;        /* 次要說明文字：灰色 */
     
-    --ms-blue: #0078D4;           /* 微軟藍 (Microsoft Blue) */
-    --ms-blue-light: #38bdf8;     /* 亮微軟藍 (用於強調與小標題) */
-    
-    --radius-card: 12px;          /* Widget 卡片圓角 */
+    --ms-blue: #38bdf8;           /* 微軟藍 (指定色 #38bdf8) */
+    --radius-card: 12px;          /* Widget 圓角 */
 }
 
 * {
@@ -28,70 +26,90 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* ==========================================
-   大標題與小標題樣式規範 (版型 A)
-   ========================================== */
-h1, .hero-title, .main-title {
-    color: var(--text-main) !important; /* 大標題：純白 */
-    font-size: 2rem;
+/* 頂部列樣式 (移除日期前圖示，保留乾淨排版) */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: var(--border-width) solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.lang-btn {
+    background-color: var(--widget-bg);
+    color: var(--text-main);
+    border: var(--border-width) solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.lang-btn:hover {
+    border-color: var(--ms-blue);
+}
+
+/* 大標題樣式 (純白) */
+h1, .main-title {
+    color: var(--text-main) !important;
+    font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 8px;
 }
 
-h2, h3, .widget-title, .section-title {
-    color: var(--ms-blue-light) !important; /* 小標題：微軟藍 */
-    font-size: 1.25rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-    border-bottom: var(--border-width) solid var(--border-color);
-    padding-bottom: 8px;
+.hero-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 24px;
 }
 
-/* 標題前的小圖示 (Icon) 樣式對齊版型 A */
-h2::before, h3::before, .widget-title::before {
-    content: "📌"; /* 預設小圖示，可對應 HTML 自行調整 Emoji 或 Class */
-    font-size: 1rem;
-}
-
-/* ==========================================
-   Widget 卡片排版區塊 (全面對齊版型 A)
-   ========================================== */
-.widget, .card, section {
+/* Widget 卡片排版 (每一個區塊都是版型 A 的獨立框框) */
+.widget {
     background-color: var(--widget-bg);
     border: var(--border-width) solid var(--border-color);
     border-radius: var(--radius-card);
     padding: 24px;
     margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.2s ease;
 }
 
-.widget:hover, .card:hover {
-    border-color: var(--ms-blue); /* 滑鼠移上去時邊框微微亮起微軟藍 */
+.widget:hover {
+    border-color: var(--ms-blue); /* 懸停時邊框浮現微軟藍光澤 */
 }
 
-/* 內文與段落排版 */
-p, li {
+/* 小標題樣式 (微軟藍 #38bdf8) */
+.widget-title {
+    color: var(--ms-blue) !important;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+p {
     color: var(--text-muted);
     font-size: 0.95rem;
-    margin-bottom: 10px;
 }
 
-strong, b {
-    color: var(--text-main);
-}
-
-/* 響應式排版調整 */
+/* 響應式手機微調 */
 @media (max-width: 768px) {
     body {
         padding: 10px;
     }
-    .widget, .card, section {
+    .widget {
         padding: 16px;
+    }
+    .main-title {
+        font-size: 1.6rem;
     }
 }
