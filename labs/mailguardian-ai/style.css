@@ -108,8 +108,8 @@ strong {
    ========================================== */
 .arch-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
     margin-top: 32px; /* 預留空間給頂部 Badge */
 }
 
@@ -117,9 +117,10 @@ strong {
     background-color: #0F172A; /* 比 Widget 背景更深的顏色，營造對比 */
     border: 1px solid var(--border-color);
     border-radius: var(--radius-card);
-    padding: 24px 16px;
+    padding: 20px 14px;
     position: relative; /* 為了懸浮徽章定位 */
     transition: transform 0.2s ease, border-color 0.2s ease;
+    min-width: 0; /* 避免格線因內容撐開而跑版 */
 }
 
 .arch-card:hover {
@@ -327,6 +328,14 @@ strong {
     border-top: 1px solid var(--border-color);
     color: #64748B;
     font-size: 0.9rem;
+}
+
+/* RWD 響應式：平板寬度先降為 2 欄 */
+@media (max-width: 900px) {
+    .arch-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
 }
 
 /* RWD 響應式手機版 */
